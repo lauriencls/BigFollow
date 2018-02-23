@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Big Follow</string>
+    <string name="menu_trie_domaine">Trier par Domaine</string>
+    <string name="menu_trie_utilisateurs">Trier par utilisateur</string>
+    <string name="action_settings">Settings</string>
+    <string name="server_client_id">1025819528334-1rr2odja050n9rqu768t1hhqj7heg6ok.apps.googleusercontent.com</string>
+    <!-- Button labels -->
+    <string name="sign_out">Sign Out</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="signIn">Se Connecter</string>
+    <string name="title_activity_actions">ActionsActivity</string>
+    <string name="title_activity_formations">FormationsActivity</string>
+</resources>

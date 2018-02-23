@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Type"
+        android:id="@+id/type" />
+    <item android:title="Domain"
+        android:id="@+id/domain" />
+    <item android:title="Phase"
+        android:id="@+id/phase"/>
+    <item android:title="Nom"
+        android:id="@+id/nom" />
+</menu>

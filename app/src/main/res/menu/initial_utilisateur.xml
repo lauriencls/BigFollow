@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="miage.fr.gestionprojet.vues.MainActivity">
+
+        <item
+            android:id="@+id/initial_utilisateur"
+            android:orderInCategory="100"
+            android:title=""
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            app:showAsAction="always" />
+        <item
+            android:id="@+id/charger_donnees"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:icon="@drawable/ic_action_update"
+            android:orderInCategory="1"
+            android:orientation="vertical"
+            android:title=""
+            app:showAsAction="always" />
+
+</menu>

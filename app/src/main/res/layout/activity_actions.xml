@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="miage.fr.gestionprojet.vues.ActionsActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?actionBarSize">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:background="@drawable/background_ounded_border"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/year_minus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:paddingEnd="16dp"
+                    android:paddingStart="16dp"
+                    android:src="@drawable/ic_chev_left"
+                    android:textColor="@color/colorPrimary" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimary" />
+
+                <EditText
+                    android:id="@+id/edit_text_year"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:enabled="false"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:paddingEnd="16dp"
+                    android:paddingStart="16dp"
+                    android:text="2017"
+                    android:textColor="@color/colorPrimary"
+                    />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimary" />
+
+                <ImageButton
+                    android:id="@+id/year_plus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:paddingEnd="16dp"
+                    android:paddingStart="16dp"
+                    android:src="@drawable/ic_chev_right"
+                    android:textColor="@color/colorPrimary" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:background="@drawable/background_ounded_border"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/week_minus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:paddingEnd="16dp"
+                    android:paddingStart="16dp"
+                    android:src="@drawable/ic_chev_left"
+                    android:textColor="@color/colorPrimary" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimary" />
+
+                <EditText
+                    android:id="@+id/edit_text_week"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@color/transparent"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:paddingEnd="16dp"
+                    android:paddingStart="16dp"
+                    android:text="43"
+                    android:textColor="@color/colorPrimary"
+                    android:enabled="false"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimary" />
+
+                <ImageButton
+                    android:id="@+id/week_plus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:paddingEnd="16dp"
+                    android:paddingStart="16dp"
+                    android:src="@drawable/ic_chev_right"
+                    android:textColor="@color/colorPrimary" />
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/actionRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                app:layoutManager="LinearLayoutManager"
+                android:listSelector="#87CEFA"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/emptyView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="no action to show"
+            android:textColor="#000"
+            android:visibility="invisible" />
+    </FrameLayout>
+</android.support.design.widget.CoordinatorLayout>

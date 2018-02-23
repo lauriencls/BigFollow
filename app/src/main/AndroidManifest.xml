@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="miage.fr.gestionprojet">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="AA_DB_NAME"
+            android:value="BigFollow.db" />
+        <meta-data
+            android:name="AA_DB_VERSION"
+            android:value="7" />
+        <meta-data
+            android:name="AA_MODELS"
+            android:value="
+miage.fr.gestionprojet.models.Action,
+miage.fr.gestionprojet.models.Domaine,
+miage.fr.gestionprojet.models.Mesure,
+miage.fr.gestionprojet.models.Formation,
+miage.fr.gestionprojet.models.Projet,
+miage.fr.gestionprojet.models.Ressource,
+miage.fr.gestionprojet.models.SaisieCharge" />
+
+        <activity android:name=".vues.ActivityConnexion">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".vues.ChargementDonnees" />
+        <activity android:name=".vues.MainActivity" />
+        <activity android:name=".vues.ActivityDetailsProjet" />
+        <activity android:name=".vues.ActivityIndicateursSaisieCharge" />
+        <activity android:name=".vues.ActivityDetailsIndicateursSaisieCharge" />
+        <activity android:name=".vues.ActivityGestionDesInitials" />
+        <activity
+            android:name=".vues.ActionsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar" />
+        <activity android:name=".vues.ActivityBudget" />
+        <activity android:name=".vues.FormationsActivity" />
+        <activity
+            android:name=".vues.FormationActivity"
+            android:theme="@style/AppTheme.PopupCustomTheme" />
+        <activity android:name=".vues.ActivityMesures"></activity>
+    </application>
+
+</manifest>

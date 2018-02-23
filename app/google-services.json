@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1025819528334",
+    "project_id": "gestionprojetandroid-156122"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1025819528334:android:53efa5a14e417c1f",
+        "android_client_info": {
+          "package_name": "miage.fr.gestionprojet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1025819528334-2sqoparbtpc72f18dffn7eot9m8mkbrn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrhUV24YCVMuxgCQaokx84BiS02e_Cwdc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

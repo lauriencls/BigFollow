@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="12dp"
+    android:id="@+id/actionContainer">
+
+    <TextView
+        android:id="@+id/phase"
+        android:layout_width="56dp"
+        android:layout_height="?actionBarSize"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/action_phase_shape"
+        android:gravity="center"
+        android:textColor="#FFF"
+        android:textSize="20sp"
+        tools:text="1" />
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_width="0dp"
+        android:layout_weight="0.7"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/name"
+            tools:text="Action 1"
+            android:textSize="15sp"
+            android:textColor="#000"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/date"
+            tools:text="September 1, 2015"
+            android:textSize="14sp"
+            android:textColor="#333"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="0.3"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/domain"
+        tools:text="Material"
+        android:textSize="15sp"
+        android:textColor="#000"/>
+</LinearLayout>

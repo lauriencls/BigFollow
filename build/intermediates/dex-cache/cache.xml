@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/robin_delaporte/.gradle/caches/modules-2/files-2.1/com.google.oauth-client/google-oauth-client/1.22.0/1d63f369ac78e4838a3197147012026e791008cb/google-oauth-client-1.22.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1d63f369ac78e4838a3197147012026e791008cb">
+        <dex dex="/Users/robin_delaporte/Documents/Univ nantes/Processus de dev/Processus de développement - application Android/5 - Livraison/src_app_android_big_follow/app/build/intermediates/transforms/dex/debug/folders/1000/10/google-oauth-client-1.22.0_48a3a8fd8b76f4e965ac9d34d92273ecc3ea5b93/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/robin_delaporte/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-android/1.22.0/6d1e1a76a16a244ab2f41775791be1dd0ec2878a/google-http-client-android-1.22.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6d1e1a76a16a244ab2f41775791be1dd0ec2878a">
+        <dex dex="/Users/robin_delaporte/Documents/Univ nantes/Processus de dev/Processus de développement - application Android/5 - Livraison/src_app_android_big_follow/app/build/intermediates/transforms/dex/debug/folders/1000/10/google-http-client-android-1.22.0_a92c5d24a5228b0fb1e63dacbe933ade0251f742/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/robin_delaporte/.gradle/caches/modules-2/files-2.1/com.google.apis/google-api-services-sheets/v4-rev468-1.22.0/a8ce4aa08dc630c249a11fbd3f39a105e998926b/google-api-services-sheets-v4-rev468-1.22.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a8ce4aa08dc630c249a11fbd3f39a105e998926b">
+        <dex dex="/Users/robin_delaporte/Documents/Univ nantes/Processus de dev/Processus de développement - application Android/5 - Livraison/src_app_android_big_follow/app/build/intermediates/transforms/dex/debug/folders/1000/10/google-api-services-sheets-v4-rev468-1.22.0_eb83dcbff5cee872223008e3052bb5f6a29f06f1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/robin_delaporte/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-jackson2/1.22.0/cc014d64ae11117e159d334c99d9c246d9b36f44/google-http-client-jackson2-1.22.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="cc014d64ae11117e159d334c99d9c246d9b36f44">
+        <dex dex="/Users/robin_delaporte/Documents/Univ nantes/Processus de dev/Processus de développement - application Android/5 - Livraison/src_app_android_big_follow/app/build/intermediates/transforms/dex/debug/folders/1000/10/google-http-client-jackson2-1.22.0_6af49adf0da44442bd24193b1e11e05d3b7db974/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/robin_delaporte/.android/build-cache/d021103fd15562a93f3748feb9d13112a5795c01/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c62423966e97071131e9c16d89ffaa003fe6a5d1">
+        <dex dex="/Users/robin_delaporte/Documents/Univ nantes/Processus de dev/Processus de développement - application Android/5 - Livraison/src_app_android_big_follow/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_6d111c2169eacd775ede1b7be101fabe1c3b3220/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/robin_delaporte/.gradle/caches/modules-2/files-2.1/com.google.guava/guava-jdk5/17.0/463f8378feba44df7ba7cd9272d01837dad62b36/guava-jdk5-17.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="463f8378feba44df7ba7cd9272d01837dad62b36">
+        <dex dex="/Users/robin_delaporte/Documents/Univ nantes/Processus de dev/Processus de développement - application Android/5 - Livraison/src_app_android_big_follow/app/build/intermediates/transforms/dex/debug/folders/1000/10/guava-jdk5-17.0_0c2a33a86ff189ab0bd1a2157935ad72b717bef1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/robin_delaporte/Documents/Univ nantes/Processus de dev/Processus de développement - application Android/5 - Livraison/src_app_android_big_follow/app/libs/activeandroid-3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8cdfaba830e02c56967e946078b60fc476432f36">
+        <dex dex="/Users/robin_delaporte/Documents/Univ nantes/Processus de dev/Processus de développement - application Android/5 - Livraison/src_app_android_big_follow/app/build/intermediates/transforms/dex/debug/folders/1000/2/activeandroid-3.0_6b4b936786790251695e6ea66d80a813316ef492/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/robin_delaporte/.gradle/caches/modules-2/files-2.1/com.michaelpardo/activeandroid/3.1.0-SNAPSHOT/4ab7b0182975bc57c49efc5e0b3baa4a10e4ec08/activeandroid-3.1.0-SNAPSHOT.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4ab7b0182975bc57c49efc5e0b3baa4a10e4ec08">
+        <dex dex="/Users/robin_delaporte/Documents/Univ nantes/Processus de dev/Processus de développement - application Android/5 - Livraison/src_app_android_big_follow/app/build/intermediates/transforms/dex/debug/folders/1000/10/activeandroid-3.1.0-SNAPSHOT_c6d11bf6436b3eabe9e29649c7c907b4a2529e56/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/robin_delaporte/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client/1.22.0/d441fc58329c4a4c067acec04ac361627f66ecc8/google-http-client-1.22.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d441fc58329c4a4c067acec04ac361627f66ecc8">
+        <dex dex="/Users/robin_delaporte/Documents/Univ nantes/Processus de dev/Processus de développement - application Android/5 - Livraison/src_app_android_big_follow/app/build/intermediates/transforms/dex/debug/folders/1000/10/google-http-client-1.22.0_9789b4c77afd93193fc03a954dcd4af0652d55a5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/robin_delaporte/Documents/Univ nantes/Processus de dev/Processus de développement - application Android/5 - Livraison/src_app_android_big_follow/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a76d47d720d89976c1884c46ac079b63abb8ad82">
+        <dex dex="/Users/robin_delaporte/Documents/Univ nantes/Processus de dev/Processus de développement - application Android/5 - Livraison/src_app_android_big_follow/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_2ff8664314096a54b724bc4a8fe50a4defd14f87/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/robin_delaporte/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.1.3/f6c3aed1cdfa21b5c1737c915186ea93a95a58bd/jackson-core-2.1.3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f6c3aed1cdfa21b5c1737c915186ea93a95a58bd">
+        <dex dex="/Users/robin_delaporte/Documents/Univ nantes/Processus de dev/Processus de développement - application Android/5 - Livraison/src_app_android_big_follow/app/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-core-2.1.3_1836b65bd726ed646f36a5ec4e1ae810ba3afa9f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/robin_delaporte/Documents/Univ nantes/Processus de dev/Processus de développement - application Android/5 - Livraison/src_app_android_big_follow/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="/Users/robin_delaporte/Documents/Univ nantes/Processus de dev/Processus de développement - application Android/5 - Livraison/src_app_android_big_follow/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_53260b25c4499294f775759b8be5c73ec9e13b27/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Applications/Android Studio.app/Contents/gradle/m2repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf">
+        <dex dex="/Users/robin_delaporte/Documents/Univ nantes/Processus de dev/Processus de développement - application Android/5 - Livraison/src_app_android_big_follow/app/build/intermediates/transforms/dex/debug/folders/1000/10/jsr305-1.3.9_772a7925b08675cdf6b1bcb4dee6adbe99753902/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/robin_delaporte/.gradle/caches/modules-2/files-2.1/com.google.api-client/google-api-client-android/1.22.0/7a0fe12b7d8189a821934d6f9d6586d00180e461/google-api-client-android-1.22.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7a0fe12b7d8189a821934d6f9d6586d00180e461">
+        <dex dex="/Users/robin_delaporte/Documents/Univ nantes/Processus de dev/Processus de développement - application Android/5 - Livraison/src_app_android_big_follow/app/build/intermediates/transforms/dex/debug/folders/1000/10/google-api-client-android-1.22.0_b28253b0ee40fe3545e4ef5e00bece41bf32d6f5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/robin_delaporte/.gradle/caches/modules-2/files-2.1/com.google.api-client/google-api-client/1.22.0/244350c0c845c583717ade13f5666a452fd0cfa/google-api-client-1.22.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0244350c0c845c583717ade13f5666a452fd0cfa">
+        <dex dex="/Users/robin_delaporte/Documents/Univ nantes/Processus de dev/Processus de développement - application Android/5 - Livraison/src_app_android_big_follow/app/build/intermediates/transforms/dex/debug/folders/1000/10/google-api-client-1.22.0_088e86b70f5efdc74ffd69c6dd28b78fedaeb36f/classes.dex" />
+    </item>
+
+</items>
