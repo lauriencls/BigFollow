@@ -47,11 +47,6 @@ public class ActivityConnexion extends AppCompatActivity implements GoogleApiCli
     private int request_code;
     ProgressDialog progress_dialog;
 
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

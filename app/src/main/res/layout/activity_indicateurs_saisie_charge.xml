@@ -20,7 +20,7 @@
             style="@style/textTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Saisie de charge" />
+            android:text="Indicateurs de saisie de charge" />
 
         <ListView
             android:id="@+id/listViewSaisieCharge"
