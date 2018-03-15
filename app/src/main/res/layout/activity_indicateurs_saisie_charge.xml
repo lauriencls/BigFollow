@@ -16,13 +16,11 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:text="PROJET"
+            android:id="@+id/textView"
+            style="@style/textTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true"
-            android:id="@+id/textViewNomProjetSaisieCharge"
-            android:textAlignment="center" />
+            android:text="Saisie de charge" />
 
         <ListView
             android:id="@+id/listViewSaisieCharge"
