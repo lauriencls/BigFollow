@@ -63,7 +63,7 @@ public class MainActivity  extends AppCompatActivity {
             liste.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                    Intent intent = new Intent(MainActivity.this, ActivityDetailsProjet.class);
+                    Intent intent = new Intent(getApplicationContext(), ActivityDetailsProjet.class);
                     intent.putExtra(EXTRA_PROJET, (lstProjets.get(position).getId()));
                     intent.putExtra(EXTRA_INITIAL,initialUtilisateur);
 
@@ -89,6 +89,12 @@ public class MainActivity  extends AppCompatActivity {
             }
         }
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(lstProjets.size()<=1) finish();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

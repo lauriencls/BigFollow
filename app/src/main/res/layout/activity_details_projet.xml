@@ -31,21 +31,24 @@
                 android:id="@+id/btnBudget"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0.33"
+                style="@style/btnSuccess"
                 android:text="Budget" />
 
             <Button
                 android:id="@+id/btnSaisies"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0.33"
+                style="@style/btnSuccess"
                 android:text="Saisies" />
 
             <Button
                 android:id="@+id/btnFormations"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0.33"
+                style="@style/btnSuccess"
                 android:text="Formation" />
         </LinearLayout>
 

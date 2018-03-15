@@ -68,7 +68,7 @@
     </style>
 
     <style name="btnSuccess" parent="Widget.AppCompat.Button">
-        <item name="android:padding">5dp</item>
+        <item name="android:padding">10dp</item>
         <item name="android:background">@color/btnSuccess</item>
         <item name="android:textColor">@color/ultraLightGrey</item>
         <item name="android:textSize">@dimen/abc_text_size_subhead_material</item>

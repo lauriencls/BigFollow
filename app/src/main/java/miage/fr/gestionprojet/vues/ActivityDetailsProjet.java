@@ -2,6 +2,8 @@ package miage.fr.gestionprojet.vues;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.util.DiffUtil;
@@ -45,6 +47,7 @@ public class ActivityDetailsProjet extends AppCompatActivity {
     private Projet proj;
     public String initialUtilisateur =null;
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -157,7 +160,7 @@ public class ActivityDetailsProjet extends AppCompatActivity {
 
             //détermination de la couleur du bouton budget en fonction du temps restant et du nombre d'actions déjà réalisées
             if(ratioDuree<100-ratioBudget){
-                buttonBudget.setBackgroundColor(Color.RED);
+                buttonBudget.setBackgroundColor(getColor(R.color.rouge));
             }else if(ratioDuree>100-ratioBudget){
                 buttonBudget.setBackgroundColor(Color.GREEN);
             }else{
@@ -168,7 +171,7 @@ public class ActivityDetailsProjet extends AppCompatActivity {
             float avancementTotalFormation = DaoFormation.getAvancementTotal(this.proj.getId());
             int ratioFormation = Outils.calculerPourcentage(avancementTotalFormation,100);
             if(ratioDuree<100-ratioFormation){
-                buttonFormations.setBackgroundColor(Color.RED);
+                buttonFormations.setBackgroundColor(getColor(R.color.rouge));
             }else if(ratioDuree>100-ratioFormation){
                 buttonFormations.setBackgroundColor(Color.GREEN);
             }else{
@@ -180,7 +183,7 @@ public class ActivityDetailsProjet extends AppCompatActivity {
             int nbUniteesCibles = DaoSaisieCharge.getNbUnitesCibles(this.proj.getId());
             int ratioSaisies = Outils.calculerPourcentage(nbUniteesSaisies,nbUniteesCibles);
             if(ratioDuree<100-ratioSaisies){
-                buttonSaisies.setBackgroundColor(Color.RED);
+                buttonSaisies.setBackgroundColor(getColor(R.color.rouge));
             }else if(ratioDuree>100-ratioSaisies){
                 buttonSaisies.setBackgroundColor(Color.GREEN);
             }else{
