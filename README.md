@@ -1,7 +1,7 @@
 # BigFollow
 Application de gestion de projet sur Android.
 
-Assurez-vous de disposer d'un téléphone android de version au moins : **4.3**
+Assurez-vous de disposer d'un téléphone android de version au moins : 4.3
 
 Ainsi que d'un compte GitHub : https://github.com
 
