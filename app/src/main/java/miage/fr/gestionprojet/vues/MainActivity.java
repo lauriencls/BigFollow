@@ -94,7 +94,7 @@ public class MainActivity  extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if(lstProjets.size()<=1) finish();
+        //if(lstProjets.size()<=1) finish();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
