@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Calendar;
 import java.util.List;
 
+import miage.fr.gestionprojet.models.LoggedUser;
 import miage.fr.gestionprojet.models.Mesure;
 import miage.fr.gestionprojet.models.SaisieCharge;
 import miage.fr.gestionprojet.models.dao.DaoMesure;
@@ -32,7 +33,6 @@ public class ActivityDetailsIndicateursSaisieCharge extends AppCompatActivity {
 
     private SaisieCharge saisieCharge = null;
     private TextView txtSaisieCharge;
-    public final static String EXTRA_INITIAL = "initial";
     public static final String EXTRA_SAISIECHARGE = "saisie charge";
     public String initialUtilisateur =null;
 
@@ -43,7 +43,7 @@ public class ActivityDetailsIndicateursSaisieCharge extends AppCompatActivity {
 
         Intent intent = getIntent();
         long id = intent.getLongExtra(ActivityIndicateursSaisieCharge.SAISIECHARGE,0);
-        initialUtilisateur = intent.getStringExtra(EXTRA_INITIAL);
+        initialUtilisateur = LoggedUser.getInstance().getInitials();
 
 
         if(id > 0){
@@ -85,7 +85,6 @@ public class ActivityDetailsIndicateursSaisieCharge extends AppCompatActivity {
                 public void onClick(View view) {
                     Intent intent = new Intent(ActivityDetailsIndicateursSaisieCharge.this, ActivityMesures.class);
                     intent.putExtra(EXTRA_SAISIECHARGE, saisieCharge.getId());
-                    intent.putExtra(EXTRA_INITIAL,initialUtilisateur);
                     startActivity(intent);
                 }
             });
@@ -111,7 +110,6 @@ public class ActivityDetailsIndicateursSaisieCharge extends AppCompatActivity {
                 return true;
             case R.id.charger_donnees:
                 Intent intent = new Intent(ActivityDetailsIndicateursSaisieCharge.this, ChargementDonnees.class);
-                intent.putExtra(EXTRA_INITIAL, (initialUtilisateur));
                 startActivity(intent);
                 return true;
 

@@ -13,12 +13,12 @@ import java.util.List;
 import miage.fr.gestionprojet.R;
 import miage.fr.gestionprojet.adapter.FormationsAdapter;
 import miage.fr.gestionprojet.models.Formation;
+import miage.fr.gestionprojet.models.LoggedUser;
 import miage.fr.gestionprojet.models.dao.DaoFormation;
 import miage.fr.gestionprojet.outils.DividerItemDecoration;
 
 public class FormationsActivity extends AppCompatActivity {
 
-    private static final String EXTRA_INITIAL = "initial";
     protected ListView formationsList;
     protected List<Formation> formationsData;
     public static final String FORMATION_SELECTED = "formation-selected";
@@ -30,7 +30,7 @@ public class FormationsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formations);
 
-        initialUtilisateur = getIntent().getStringExtra(EXTRA_INITIAL);
+        initialUtilisateur = LoggedUser.getInstance().getInitials();
         formationsList = (ListView) findViewById(R.id.formationsList);
         formationsData = DaoFormation.getFormations();
 

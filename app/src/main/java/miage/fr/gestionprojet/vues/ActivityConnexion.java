@@ -35,7 +35,6 @@ public class ActivityConnexion extends AppCompatActivity  implements View.OnClic
     private static final int RC_SIGN_IN = 0;
     ProgressDialog progress_dialog;
     private GoogleSignInClient mGoogleSignInClient;
-    private boolean logged = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +42,7 @@ public class ActivityConnexion extends AppCompatActivity  implements View.OnClic
         setContentView(R.layout.activity_connexion);
         //Customize sign-in button.a red button may be displayed when Google+ scopes are requested
         signIn_btn = (SignInButton) findViewById(R.id.sign_in_button);
-        signOut_btn = (Button) findViewById(R.id.sign_out_button);
+        signOut_btn = (Button) findViewById(R.id.next_button);
         signIn_btn.setOnClickListener(this);
         signOut_btn.setOnClickListener(this);
         progress_dialog = new ProgressDialog(this);
@@ -86,10 +85,9 @@ public class ActivityConnexion extends AppCompatActivity  implements View.OnClic
             case R.id.sign_in_button:
                 signIn();
                 break;
-            case R.id.sign_out_button:
-                progress_dialog.show();
-                signOut();
-                progress_dialog.hide();
+            case R.id.next_button:
+                Intent intent = new Intent(ActivityConnexion.this,ActivityGestionDesInitials.class);
+                startActivity(intent);
                 break;
         }
     }
@@ -138,11 +136,11 @@ public class ActivityConnexion extends AppCompatActivity  implements View.OnClic
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
             LoggedUser.getInstance().setCurrentUser(account);
-            Intent intent = new Intent(ActivityConnexion.this,ActivityGestionDesInitials.class);
-            startActivity(intent);
-            logged = true;
             signIn_btn.setVisibility(View.GONE);
             signOut_btn.setVisibility(View.VISIBLE);
+            Intent intent = new Intent(ActivityConnexion.this,ActivityGestionDesInitials.class);
+            startActivity(intent);
+
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
@@ -157,9 +155,6 @@ public class ActivityConnexion extends AppCompatActivity  implements View.OnClic
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         LoggedUser.getInstance().setCurrentUser(null);
-                        logged = false;
-                        signIn_btn.setVisibility(View.VISIBLE);
-                        signOut_btn.setVisibility(View.GONE);
                     }
                 });
     }

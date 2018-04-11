@@ -24,6 +24,7 @@ import miage.fr.gestionprojet.R;
 import miage.fr.gestionprojet.adapter.AdapterSaisieCharge;
 import miage.fr.gestionprojet.models.Action;
 import miage.fr.gestionprojet.models.Domaine;
+import miage.fr.gestionprojet.models.LoggedUser;
 import miage.fr.gestionprojet.models.Projet;
 import miage.fr.gestionprojet.models.Ressource;
 import miage.fr.gestionprojet.models.SaisieCharge;
@@ -35,7 +36,6 @@ public class ActivityIndicateursSaisieCharge extends AppCompatActivity {
     private List<SaisieCharge> lstSaisieCharge;
     private ListView liste;
     public static final String SAISIECHARGE = "saisie charge";
-    public final static String EXTRA_INITIAL = "initial";
     public String initialUtilisateur =null;
 
     @Override
@@ -46,7 +46,7 @@ public class ActivityIndicateursSaisieCharge extends AppCompatActivity {
         //on récupère le projet sélectionné
         long id =  intent.getLongExtra(ActivityDetailsProjet.PROJET,0);
         liste = (ListView) findViewById(R.id.listViewSaisieCharge);
-        initialUtilisateur = intent.getStringExtra(ActivityDetailsProjet.EXTRA_INITIAL);
+        initialUtilisateur = LoggedUser.getInstance().getInitials();
 
         if (id > 0 ) {
             // on récupère les données associées à ce projet
@@ -75,7 +75,6 @@ public class ActivityIndicateursSaisieCharge extends AppCompatActivity {
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Intent intent = new Intent(ActivityIndicateursSaisieCharge.this, ActivityDetailsIndicateursSaisieCharge.class);
                     intent.putExtra(SAISIECHARGE, lstSaisieCharge.get(position).getId());
-                    intent.putExtra(EXTRA_INITIAL,initialUtilisateur);
                     startActivity(intent);
                 }
             });
@@ -106,7 +105,6 @@ public class ActivityIndicateursSaisieCharge extends AppCompatActivity {
                 return true;
             case R.id.charger_donnees:
                 Intent intent = new Intent(ActivityIndicateursSaisieCharge.this, ChargementDonnees.class);
-                intent.putExtra(EXTRA_INITIAL, (initialUtilisateur));
                 startActivity(intent);
                 return true;
             case R.id.menu_trie_utilisateur:

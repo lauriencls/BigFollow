@@ -15,6 +15,7 @@ import java.util.List;
 
 import miage.fr.gestionprojet.R;
 import miage.fr.gestionprojet.adapter.AdapterInitiales;
+import miage.fr.gestionprojet.models.LoggedUser;
 import miage.fr.gestionprojet.models.Ressource;
 import miage.fr.gestionprojet.models.dao.DaoRessource;
 
@@ -26,7 +27,6 @@ public class ActivityGestionDesInitials extends AppCompatActivity {
 
     private ListView liste = null;
     private List<Ressource> lstRessourceInitials = null;
-    public final static String EXTRA_INITIAL = "Initial";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +54,7 @@ public class ActivityGestionDesInitials extends AppCompatActivity {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                     Intent intent = new Intent(ActivityGestionDesInitials.this, MainActivity.class);
-                    intent.putExtra(EXTRA_INITIAL, (lstRessourceInitials.get(position).getInitiales()));
+                    LoggedUser.getInstance().setInitials(lstRessourceInitials.get(position).getInitiales());
                     startActivity(intent);
                 }
             });
@@ -69,7 +69,6 @@ public class ActivityGestionDesInitials extends AppCompatActivity {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                     Intent intent = new Intent(ActivityGestionDesInitials.this, MainActivity.class);
-                    intent.putExtra(EXTRA_INITIAL,"");
                     startActivity(intent);
                 }
             });

@@ -24,13 +24,13 @@
         android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/sign_out_button"
+        android:id="@+id/next_button"
         android:layout_width="fill_parent"
         android:layout_alignParentBottom="true"
         android:background="#ffffff"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        android:text="Log out"/>
+        android:text="Next"/>
 
 
 

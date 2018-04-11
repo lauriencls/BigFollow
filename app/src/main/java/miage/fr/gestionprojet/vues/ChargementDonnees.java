@@ -56,6 +56,7 @@
         import miage.fr.gestionprojet.models.Formation;
         import miage.fr.gestionprojet.models.Action;
         import miage.fr.gestionprojet.models.Domaine;
+        import miage.fr.gestionprojet.models.LoggedUser;
         import miage.fr.gestionprojet.models.Mesure;
         import miage.fr.gestionprojet.models.Projet;
         import miage.fr.gestionprojet.models.Ressource;
@@ -882,10 +883,8 @@ public class ChargementDonnees extends Activity implements EasyPermissions.Permi
                 mOutputText.setText(TextUtils.join("\n", output));
 
             }
-            Intent intentInitial = getIntent();
-            String initialUtilisateur = intentInitial.getStringExtra(ActivityGestionDesInitials.EXTRA_INITIAL);
+            String initialUtilisateur = LoggedUser.getInstance().getInitials();
             Intent intent = new Intent(ChargementDonnees.this,ActivityGestionDesInitials.class);
-            intent.putExtra(ActivityGestionDesInitials.EXTRA_INITIAL, initialUtilisateur);
             startActivity(intent);
         }
 
