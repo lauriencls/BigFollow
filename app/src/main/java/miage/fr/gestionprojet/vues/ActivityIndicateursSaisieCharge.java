@@ -100,11 +100,14 @@ public class ActivityIndicateursSaisieCharge extends AppCompatActivity {
     // action à réaliser pour chaque item du menu
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
         switch (item.getItemId()) {
             case R.id.initial_utilisateur:
+                intent = new Intent(ActivityIndicateursSaisieCharge.this, ActivityMenuInitiales.class);
+                startActivity(intent);
                 return true;
             case R.id.charger_donnees:
-                Intent intent = new Intent(ActivityIndicateursSaisieCharge.this, ChargementDonnees.class);
+                intent = new Intent(ActivityIndicateursSaisieCharge.this, ChargementDonnees.class);
                 startActivity(intent);
                 return true;
             case R.id.menu_trie_utilisateur:

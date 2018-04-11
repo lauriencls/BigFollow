@@ -2,7 +2,6 @@ package miage.fr.gestionprojet.vues;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,7 +19,6 @@ import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.plus.People;
 import com.google.android.gms.plus.model.people.PersonBuffer;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 import java.util.ArrayList;
@@ -34,7 +32,7 @@ public class ActivityConnexion extends AppCompatActivity  implements View.OnClic
     Button signOut_btn;
     private static final int RC_SIGN_IN = 0;
     ProgressDialog progress_dialog;
-    private GoogleSignInClient mGoogleSignInClient;
+    public static GoogleSignInClient mGoogleSignInClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -149,13 +147,5 @@ public class ActivityConnexion extends AppCompatActivity  implements View.OnClic
         }
     }
 
-    private void signOut() {
-        mGoogleSignInClient.signOut()
-                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        LoggedUser.getInstance().setCurrentUser(null);
-                    }
-                });
-    }
+
 }

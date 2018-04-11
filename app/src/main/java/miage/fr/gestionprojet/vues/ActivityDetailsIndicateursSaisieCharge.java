@@ -103,13 +103,16 @@ public class ActivityDetailsIndicateursSaisieCharge extends AppCompatActivity {
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
         int id = item.getItemId();
         //noinspection SimplifiableIfStatement
         switch(id){
             case R.id.initial_utilisateur:
+                intent = new Intent(ActivityDetailsIndicateursSaisieCharge.this, ActivityMenuInitiales.class);
+                startActivity(intent);
                 return true;
             case R.id.charger_donnees:
-                Intent intent = new Intent(ActivityDetailsIndicateursSaisieCharge.this, ChargementDonnees.class);
+                 intent = new Intent(ActivityDetailsIndicateursSaisieCharge.this, ChargementDonnees.class);
                 startActivity(intent);
                 return true;
 

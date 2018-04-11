@@ -52,13 +52,16 @@ public class ActivityMesures extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
         int id = item.getItemId();
         //noinspection SimplifiableIfStatement
         switch(id){
             case R.id.initial_utilisateur:
+                intent = new Intent(ActivityMesures.this, ActivityMenuInitiales.class);
+                startActivity(intent);
                 return true;
             case R.id.charger_donnees:
-                Intent intent = new Intent(ActivityMesures.this, ChargementDonnees.class);
+                intent = new Intent(ActivityMesures.this, ChargementDonnees.class);
                 startActivity(intent);
                 return true;
 

@@ -195,13 +195,16 @@ public class ActivityDetailsProjet extends AppCompatActivity {
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
         int id = item.getItemId();
         //noinspection SimplifiableIfStatement
         switch(id){
             case R.id.initial_utilisateur:
+                intent = new Intent(ActivityDetailsProjet.this, ActivityMenuInitiales.class);
+                startActivity(intent);
                 return true;
             case R.id.charger_donnees:
-                Intent intent = new Intent(ActivityDetailsProjet.this, ChargementDonnees.class);
+                intent = new Intent(ActivityDetailsProjet.this, ChargementDonnees.class);
                 startActivity(intent);
                 return true;
 

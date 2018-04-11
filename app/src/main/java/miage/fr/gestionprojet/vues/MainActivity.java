@@ -55,6 +55,7 @@ public class MainActivity  extends AppCompatActivity {
         lstProjets = daoProjet.getProjetEnCours(new Date());
         liste = (ListView) findViewById(R.id.listViewProjet);
 
+
         // si le nombre de projet en cours est supérieur à 1 on affiche une liste
         if(lstProjets.size()>1) {
             final ArrayAdapter<Projet> adapter = new ArrayAdapter<Projet>(this, android.R.layout.simple_list_item_1, lstProjets);
@@ -104,12 +105,15 @@ public class MainActivity  extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+        Intent intent;
         //noinspection SimplifiableIfStatement
         switch(id){
             case R.id.initial_utilisateur:
+                intent = new Intent(MainActivity.this, ActivityMenuInitiales.class);
+                startActivity(intent);
                 return true;
             case R.id.charger_donnees:
-                Intent intent = new Intent(MainActivity.this, ChargementDonnees.class);
+                intent = new Intent(MainActivity.this, ChargementDonnees.class);
                 startActivity(intent);
                 return true;
 

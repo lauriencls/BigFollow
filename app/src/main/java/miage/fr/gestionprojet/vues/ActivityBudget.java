@@ -113,13 +113,16 @@ public class ActivityBudget extends AppCompatActivity {
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
         int id = item.getItemId();
         //noinspection SimplifiableIfStatement
         switch(id){
             case R.id.initial_utilisateur:
+                intent = new Intent(ActivityBudget.this, ActivityMenuInitiales.class);
+                startActivity(intent);
                 return true;
             case R.id.charger_donnees:
-                Intent intent = new Intent(ActivityBudget.this, ChargementDonnees.class);
+                intent = new Intent(ActivityBudget.this, ChargementDonnees.class);
                 startActivity(intent);
                 return true;
 

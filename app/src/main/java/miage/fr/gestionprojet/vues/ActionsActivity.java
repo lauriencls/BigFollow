@@ -273,6 +273,7 @@ public class ActionsActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
         switch (item.getItemId()) {
             case R.id.nom:
                 refreshAdapter(DaoAction.loadActionsOrderByNomAndDate(dateSaisie,idProjet));
@@ -287,9 +288,11 @@ public class ActionsActivity extends AppCompatActivity implements View.OnClickLi
                 showPopUp("phase");
                 return true;
             case R.id.initial_utilisateur:
+                intent = new Intent(ActionsActivity.this, ActivityMenuInitiales.class);
+                startActivity(intent);
                 return true;
             case R.id.charger_donnees:
-                Intent intent = new Intent(ActionsActivity.this, ChargementDonnees.class);
+                 intent = new Intent(ActionsActivity.this, ChargementDonnees.class);
                 startActivity(intent);
                 return true;
         }
