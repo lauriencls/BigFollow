@@ -42,8 +42,8 @@ public abstract class InterfacePdf {
     InterfacePdf(Projet projet, Context context) throws
             DocumentException, IOException {
         this.permissionGranted = ContextCompat.checkSelfPermission(context, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED;
-        if (this.permissionGranted) {
+                == PackageManager.PERMISSION_GRANTED;
+        if (!this.permissionGranted) {
             ActivityCompat.requestPermissions((Activity) context,
                     new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE},
                     PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE);
