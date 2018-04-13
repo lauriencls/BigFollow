@@ -8,54 +8,89 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin">
 
-    <TextView
-        android:id="@+id/initiale_title"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text = "Modification des initiales"
-        />
-
     <LinearLayout
-        android:id="@+id/initiales_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical">
 
-        android:layout_height="wrap_content"
-        android:layout_width="fill_parent"
-        android:layout_below="@id/initiale_title">
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="Modification de vos paramètres"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Voulez-vous modifier vos intiales ?"
+            android:textSize="14sp" />
 
         <LinearLayout
-            android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            android:layout_weight="0.5"
-            >
+            android:layout_width="match_parent"
+            android:layout_height="410dp"
+            android:gravity="top"
+            android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/initiale_edit"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Nouvelles initiales" />
+
+            <Button
+                android:id="@+id/initiale_edit_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Enregistrer" />
+
         </LinearLayout>
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_weight="0.5">
-        <Button
-            android:id="@+id/initiale_edit_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Modifier"
-            android:layout_centerHorizontal="true"
-            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:baselineAligned="false"
+            android:gravity="bottom"
+            android:orientation="horizontal">
 
-        </RelativeLayout>
 
+
+
+
+        </LinearLayout>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/log_out_button"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/initiales_linear_layout"
-        android:text="Log Out"/>
+<LinearLayout
+android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_alignParentBottom="true"
+android:layout_weight="1"
+android:gravity="bottom"
+android:orientation="vertical">
 
+<TextView
+    android:id="@+id/textView2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:text="Voulez-vous déconnecter votre compte google ?"
+    android:textSize="14sp" />
+
+<Button
+    android:id="@+id/log_out_button"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:drawableLeft="@android:drawable/ic_lock_power_off"
+    android:text="Déconnection" />
+</LinearLayout>
 </RelativeLayout>
