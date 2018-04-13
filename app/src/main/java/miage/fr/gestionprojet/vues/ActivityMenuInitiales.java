@@ -54,8 +54,6 @@ public class ActivityMenuInitiales  extends AppCompatActivity  {
                 DaoRessource daoRessource = new DaoRessource();
                 daoRessource.modifyInitiale(initialUtilisateur, initialesEdit.getText().toString());
                 LoggedUser.getInstance().setInitials(initialesEdit.getText().toString());
-                Toast toast = Toast.makeText(ActivityMenuInitiales.this.getBaseContext(), "Modifications effectuées, elles s'afficheront au prochain démarrage de l'application", Toast.LENGTH_LONG);
-                toast.show();
             }
         });
     }
@@ -70,5 +68,11 @@ public class ActivityMenuInitiales  extends AppCompatActivity  {
                         LoggedUser.getInstance().setCurrentUser(null);
                     }
                 });
+    }
+
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent(ActivityMenuInitiales.this,ActivityGestionDesInitials.class);
+        startActivity(intent);
     }
 }

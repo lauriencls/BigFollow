@@ -22,18 +22,23 @@
         android:layout_width="fill_parent"
         android:layout_below="@id/initiale_title">
 
-
-        <EditText
-            android:id="@+id/initiale_edit"
-            android:layout_width="wrap_content"
+        <LinearLayout
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            >
+
+            <EditText
+                android:id="@+id/initiale_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_weight="1">
+            android:layout_weight="0.5">
         <Button
             android:id="@+id/initiale_edit_button"
             android:layout_width="wrap_content"
