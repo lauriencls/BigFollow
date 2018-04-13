@@ -211,7 +211,7 @@ public class ActivityDetailsProjet extends AppCompatActivity {
                 return true;
             case R.id.envoyer_mail:
                 try {
-                    IndicateurDeSaisiesPdf pdf = new IndicateurDeSaisiesPdf(proj);
+                    IndicateurDeSaisiesPdf pdf = new IndicateurDeSaisiesPdf(proj, this);
                     pdf.createPdf();
                     MailFactory mf = new MailFactory();
                     mf.sendMailWithAttachment(InterfacePdf.DEST,"Résumé du projet", "Envoyer un email",this);

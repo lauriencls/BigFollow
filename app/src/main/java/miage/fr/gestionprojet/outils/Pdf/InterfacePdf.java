@@ -1,6 +1,11 @@
 package miage.fr.gestionprojet.outils.Pdf;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Environment;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
@@ -17,6 +22,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
+import miage.fr.gestionprojet.Manifest;
 import miage.fr.gestionprojet.models.Projet;
 
 import static miage.fr.gestionprojet.MyApplication.getContext;
@@ -30,21 +36,33 @@ public abstract class InterfacePdf {
     public static final String DEST = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) +"/mail.pdf";
     private Document document;
     protected Projet projet;
+    protected boolean permissionGranted = false;
+    public static final int PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 0;
 
-    InterfacePdf(Projet projet) throws
+    InterfacePdf(Projet projet, Context context) throws
             DocumentException, IOException {
-        File file = new File(DEST);
-        file.getParentFile().mkdirs();
-        file.createNewFile();
-        this.projet = projet;
+        this.permissionGranted = ContextCompat.checkSelfPermission(context, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED;
+        if (this.permissionGranted) {
+            ActivityCompat.requestPermissions((Activity) context,
+                    new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE);
+        }else{
+            File file = new File(DEST);
+            file.getParentFile().mkdirs();
+            file.createNewFile();
+            this.projet = projet;
+        }
     }
 
     public void createPdf() throws IOException, DocumentException {
-        this.instatiate(DEST);
+        if(this.permissionGranted) {
+            this.instatiate(DEST);
 
-        this.constructPdf();
+            this.constructPdf();
 
-        this.close();
+            this.close();
+        }
 
     }
 
@@ -100,5 +118,7 @@ public abstract class InterfacePdf {
             table.addCell(cell);
         }
     }
+
+
 
 }

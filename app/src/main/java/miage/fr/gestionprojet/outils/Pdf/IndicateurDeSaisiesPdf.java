@@ -1,5 +1,7 @@
 package miage.fr.gestionprojet.outils.Pdf;
 
+import android.content.Context;
+
 import com.itextpdf.text.DocumentException;
 
 import java.io.IOException;
@@ -17,8 +19,8 @@ import miage.fr.gestionprojet.outils.factories.SaisieChargeFactory;
 public class IndicateurDeSaisiesPdf extends InterfacePdf {
 
 
-    public IndicateurDeSaisiesPdf(Projet projet) throws DocumentException, IOException {
-        super(projet);
+    public IndicateurDeSaisiesPdf(Projet projet, Context context) throws DocumentException, IOException {
+        super(projet, context);
     }
 
     @Override
