@@ -13,7 +13,6 @@ import java.io.File;
 
 public class MailFactory {
     public void sendMailWithAttachment(String pathToFile, String subject, String title, Context context){
-        String filename="contacts_sid.vcf";
         File filelocation = new File(pathToFile);
         Uri path = Uri.fromFile(filelocation);
         Intent emailIntent = new Intent(Intent.ACTION_SEND);

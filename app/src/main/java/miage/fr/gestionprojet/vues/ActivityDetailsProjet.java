@@ -6,7 +6,6 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.util.DiffUtil;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,8 +20,6 @@ import com.activeandroid.Model;
 import com.itextpdf.text.DocumentException;
 
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Calendar;
@@ -35,8 +32,9 @@ import miage.fr.gestionprojet.models.dao.DaoFormation;
 import miage.fr.gestionprojet.models.dao.DaoProjet;
 import miage.fr.gestionprojet.models.dao.DaoSaisieCharge;
 import miage.fr.gestionprojet.outils.Outils;
+import miage.fr.gestionprojet.outils.Pdf.IndicateurDeSaisiesPdf;
 import miage.fr.gestionprojet.outils.factories.MailFactory;
-import miage.fr.gestionprojet.outils.factories.PdfFactory;
+import miage.fr.gestionprojet.outils.Pdf.InterfacePdf;
 
 public class ActivityDetailsProjet extends AppCompatActivity {
 
@@ -218,9 +216,10 @@ public class ActivityDetailsProjet extends AppCompatActivity {
                 return true;
             case R.id.envoyer_mail:
                 try {
-                    PdfFactory.create();
+                    IndicateurDeSaisiesPdf pdf = new IndicateurDeSaisiesPdf(proj);
+                    pdf.createPdf();
                     MailFactory mf = new MailFactory();
-                    mf.sendMailWithAttachment(PdfFactory.DEST,"Résumé du projet", "Envoyer un email",this);
+                    mf.sendMailWithAttachment(InterfacePdf.DEST,"Résumé du projet", "Envoyer un email",this);
                 } catch (DocumentException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
