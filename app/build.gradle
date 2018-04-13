@@ -59,7 +59,10 @@ sonarRunner {
 
 repositories {
     jcenter()
-    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+    mavenCentral()
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/"
+    }
+
 }
 dependencies {
     //compile fileTree(include: ['*.jar'], dir: 'libs')
@@ -88,6 +91,7 @@ dependencies {
     compile 'com.google.android.gms:play-services-drive:11.8.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
     compile 'org.jetbrains:annotations-java5:15.0'
+    compile 'com.itextpdf:itextg:5.5.10'
     testCompile 'junit:junit:4.12'
 }
 apply plugin: 'com.google.gms.google-services'

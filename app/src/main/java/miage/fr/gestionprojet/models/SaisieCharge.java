@@ -5,8 +5,12 @@ import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 
 import java.nio.channels.FileLock;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Date;
+
+import miage.fr.gestionprojet.models.dao.DaoMesure;
+import miage.fr.gestionprojet.outils.Outils;
 
 /**
  * Created by Audrey on 25/02/2017.
@@ -160,6 +164,20 @@ public class SaisieCharge extends Model {
 
     public String toString(){
         return this.action.getCode();
+    }
+
+    public String toPrintable(){
+        String vretour = this.getAction().getCode();
+        DaoMesure dao = new DaoMesure();
+        Mesure mesure = dao.getLastMesureBySaisieCharge(this.getId());
+        vretour += "\nProgression : "+ Outils.calculerPourcentage(mesure.getNbUnitesMesures(),this.getNbUnitesCibles())+"%";
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        vretour += "\nDate de début : "+ df.format(this.getAction().getDtDeb());
+        vretour += "\nDate de fin prévue : "+ df.format(this.getAction().getDtFinPrevue());
+        vretour += "\nNombre d'unités produites : "+ mesure.getNbUnitesMesures();
+        vretour += "\nTemps restant : "+ this.getNbSemainesRestantes();
+        vretour += "\nDernière mesure saisie : "+ df.format(mesure.getDtMesure());
+        return vretour;
     }
 
     public Action getAction() {

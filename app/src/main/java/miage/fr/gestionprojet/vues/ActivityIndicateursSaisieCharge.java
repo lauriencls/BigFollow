@@ -15,7 +15,9 @@ import android.widget.ListView;
 import android.support.v7.widget.PopupMenu;
 
 import com.activeandroid.Model;
+import com.itextpdf.text.DocumentException;
 
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +32,10 @@ import miage.fr.gestionprojet.models.Projet;
 import miage.fr.gestionprojet.models.Ressource;
 import miage.fr.gestionprojet.models.SaisieCharge;
 import miage.fr.gestionprojet.models.dao.DaoSaisieCharge;
+import miage.fr.gestionprojet.outils.Pdf.IndicateurDeSaisiesPdf;
+import miage.fr.gestionprojet.outils.Pdf.InterfacePdf;
+import miage.fr.gestionprojet.outils.factories.MailFactory;
+import miage.fr.gestionprojet.outils.factories.SaisieChargeFactory;
 
 public class ActivityIndicateursSaisieCharge extends AppCompatActivity {
 
@@ -53,19 +59,8 @@ public class ActivityIndicateursSaisieCharge extends AppCompatActivity {
             // on récupère les données associées à ce projet
             proj = Model.load(Projet.class, id);
             // on récupère la liste des travaux à afficher
-            lstSaisieCharge= new ArrayList<SaisieCharge>();
-            List<Domaine> lstDomaines = proj.getLstDomaines();
-            for(Domaine d : lstDomaines){
-                for(Action a: d.getLstActions()){
-                    if(a.getTypeTravail().equals("Saisie")||a.getTypeTravail().equals("Test")){
-                        SaisieCharge s = DaoSaisieCharge.loadSaisieChargeByAction(a.getId());
-                        if(s!=null){
-                            lstSaisieCharge.add(s);
-                        }
-                    }
-                }
+            lstSaisieCharge= new SaisieChargeFactory(proj).getSaisiesCharge();
 
-            }
 
             //on affiche cette liste
             final ArrayAdapter<SaisieCharge> adapter = new AdapterSaisieCharge(this, R.layout.list_view_layout_saisie_charge, lstSaisieCharge);
@@ -116,6 +111,18 @@ public class ActivityIndicateursSaisieCharge extends AppCompatActivity {
                 return true;
             case R.id.menu_trie_domaine:
                 showPopup("domaine");
+                return true;
+            case R.id.envoyer_mail:
+                try {
+                    IndicateurDeSaisiesPdf pdf = new IndicateurDeSaisiesPdf(proj, this);
+                    pdf.createPdf();
+                    MailFactory mf = new MailFactory();
+                    mf.sendMailWithAttachment(InterfacePdf.DEST,"Résumé du projet", "Envoyer un email",this);
+                } catch (DocumentException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
