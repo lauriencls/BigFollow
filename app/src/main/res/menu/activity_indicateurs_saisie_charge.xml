@@ -9,7 +9,8 @@
     <item
         android:id="@+id/menu_trie_utilisateur"
         android:showAsAction="never"
-        android:title="@string/menu_trie_utilisateurs"/>
+        android:title="@string/menu_trie_utilisateurs"
+        android:visible="false"/>
 
 
 </menu>

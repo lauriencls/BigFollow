@@ -54,6 +54,9 @@ public class ActivityMenuInitiales  extends AppCompatActivity  {
                 DaoRessource daoRessource = new DaoRessource();
                 daoRessource.modifyInitiale(initialUtilisateur, initialesEdit.getText().toString());
                 LoggedUser.getInstance().setInitials(initialesEdit.getText().toString());
+                Toast.makeText(ActivityMenuInitiales.this, "Enregistrées", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(ActivityMenuInitiales.this,ActivityGestionDesInitials.class);
+                startActivity(intent);
             }
         });
     }

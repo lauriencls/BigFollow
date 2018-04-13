@@ -1,5 +1,7 @@
 package miage.fr.gestionprojet.models.dao;
 
+import android.util.Log;
+
 import com.activeandroid.Model;
 import com.activeandroid.query.Select;
 
@@ -33,17 +35,22 @@ public class DaoSaisieCharge {
 
     public static List<SaisieCharge> loadSaisieChargesByDomaine(int idDomaine){
         List<SaisieCharge> lst = new ArrayList<>();
+        Domaine domaine = DaoDomaine.getById(idDomaine);
+
         List<Action> results = new Select()
                 .from(Action.class)
-                .where("domaine=?",idDomaine)
                 .execute();
+
         for(Action a : results) {
-            if(a.getTypeTravail().equalsIgnoreCase("Saisie")||a.getTypeTravail().equalsIgnoreCase("Test")) {
-                SaisieCharge result = (SaisieCharge) new Select()
+            if(a.getDomaine().getNom().equals(domaine.getNom()) && (a.getTypeTravail().equalsIgnoreCase("Saisie")||a.getTypeTravail().equalsIgnoreCase("Test"))) {
+                List<SaisieCharge> lstRes = new Select()
                         .from(SaisieCharge.class)
-                        .where("domaine=?", a.getId())
-                        .execute().get(0);
-                lst.add(result);
+                        .execute();
+                for (SaisieCharge s : lstRes) {
+                    if (s.getAction().getCode().equals(a.getCode())) {
+                        lst.add(s);
+                    }
+                }
             }
 
         }

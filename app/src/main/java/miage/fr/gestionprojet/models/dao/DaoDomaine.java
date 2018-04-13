@@ -29,4 +29,16 @@ public class DaoDomaine {
             return null;
         }
     }
+
+    public static Domaine getById(int id){
+        List<Domaine> lst = new Select()
+                .from(Domaine.class)
+                .where("id = ?",id)
+                .execute();
+        if(lst.size()>0){
+            return lst.get(0);
+        }else{
+            return null;
+        }
+    }
 }
