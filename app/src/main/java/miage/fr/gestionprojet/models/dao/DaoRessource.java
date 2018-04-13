@@ -1,6 +1,8 @@
 package miage.fr.gestionprojet.models.dao;
 
+import com.activeandroid.query.Delete;
 import com.activeandroid.query.Select;
+import com.activeandroid.query.Update;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,5 +58,12 @@ public class DaoRessource {
         }else{
             return null;
         }
+    }
+
+    public void modifyInitiale(String baseInitiales, String newInitiales){
+        new Update(Ressource.class)
+                .set("initiales = ?", newInitiales)
+                .where("initiales = ?", baseInitiales)
+                .execute();
     }
 }

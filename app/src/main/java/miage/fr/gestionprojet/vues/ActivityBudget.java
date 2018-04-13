@@ -22,6 +22,7 @@ import miage.fr.gestionprojet.adapter.AdapterBudgetDomaine;
 import miage.fr.gestionprojet.adapter.AdapterBudgetType;
 import miage.fr.gestionprojet.adapter.AdapterBudgetUtilisateur;
 import miage.fr.gestionprojet.models.Domaine;
+import miage.fr.gestionprojet.models.LoggedUser;
 import miage.fr.gestionprojet.models.Projet;
 import miage.fr.gestionprojet.models.Ressource;
 import miage.fr.gestionprojet.models.dao.DaoAction;
@@ -38,15 +39,13 @@ public class ActivityBudget extends AppCompatActivity {
     private final static String DOMAINE = "Domaine";
     private final static String TYPE = "Type";
     private final static String UTILISATEUR = "Utilisateur";
-    public final static String EXTRA_INITIAL = "initial";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_budget);
 
-        Intent intentInitial = getIntent();
-        initialUtilisateur = intentInitial.getStringExtra(EXTRA_INITIAL);
+        initialUtilisateur = LoggedUser.getInstance().getInitials();
         lstChoixAffichage = new ArrayList<>();
         lstChoixAffichage.add(DOMAINE);
         lstChoixAffichage.add(TYPE);
@@ -114,14 +113,16 @@ public class ActivityBudget extends AppCompatActivity {
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
         int id = item.getItemId();
         //noinspection SimplifiableIfStatement
         switch(id){
             case R.id.initial_utilisateur:
+                intent = new Intent(ActivityBudget.this, ActivityMenuInitiales.class);
+                startActivity(intent);
                 return true;
             case R.id.charger_donnees:
-                Intent intent = new Intent(ActivityBudget.this, ChargementDonnees.class);
-                intent.putExtra(EXTRA_INITIAL, (initialUtilisateur));
+                intent = new Intent(ActivityBudget.this, ChargementDonnees.class);
                 startActivity(intent);
                 return true;
 

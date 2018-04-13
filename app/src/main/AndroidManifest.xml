@@ -50,6 +50,7 @@ miage.fr.gestionprojet.models.SaisieCharge" />
         <activity android:name=".vues.ActivityIndicateursSaisieCharge" />
         <activity android:name=".vues.ActivityDetailsIndicateursSaisieCharge" />
         <activity android:name=".vues.ActivityGestionDesInitials" />
+        <activity android:name=".vues.ActivityMenuInitiales" />
         <activity
             android:name=".vues.ActionsActivity"
             android:screenOrientation="portrait"

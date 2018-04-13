@@ -26,6 +26,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import miage.fr.gestionprojet.R;
+import miage.fr.gestionprojet.models.LoggedUser;
 import miage.fr.gestionprojet.models.Projet;
 import miage.fr.gestionprojet.models.dao.DaoAction;
 import miage.fr.gestionprojet.models.dao.DaoFormation;
@@ -44,7 +45,6 @@ public class ActivityDetailsProjet extends AppCompatActivity {
     private final static String BUDGET = "Suivi du budget";
     public final static String PROJET = "projet visu";
     private ListView liste = null;
-    public final static String EXTRA_INITIAL = "initial";
     private List <String> lstActions;
     private Projet proj;
     public String initialUtilisateur =null;
@@ -57,7 +57,7 @@ public class ActivityDetailsProjet extends AppCompatActivity {
 
         Intent intent = getIntent();
         long id = intent.getLongExtra(MainActivity.EXTRA_PROJET,0);
-        initialUtilisateur = intent.getStringExtra(MainActivity.EXTRA_INITIAL);
+        initialUtilisateur = LoggedUser.getInstance().getInitials();
 
         // s'il n'y pas d'erreur, un projet est sélectionné
         if (id > 0) {
@@ -88,24 +88,20 @@ public class ActivityDetailsProjet extends AppCompatActivity {
                     switch (position) {
                         case 0:
                             intent = new Intent(ActivityDetailsProjet.this, ActivityIndicateursSaisieCharge.class);
-                            intent.putExtra(EXTRA_INITIAL,initialUtilisateur);
                             intent.putExtra(PROJET, proj.getId());
                             startActivity(intent);
                             break;
                         case 1:
                             intent = new Intent(ActivityDetailsProjet.this, FormationsActivity.class);
-                            intent.putExtra(EXTRA_INITIAL,initialUtilisateur);
                             startActivity(intent);
                             break;
                         case 2:
                             intent = new Intent(ActivityDetailsProjet.this, ActionsActivity.class);
-                            intent.putExtra(EXTRA_INITIAL, initialUtilisateur);
                             intent.putExtra(PROJET, proj.getId());
                             startActivity(intent);
                             break;
                         case 3:
                             intent = new Intent(ActivityDetailsProjet.this, ActivityBudget.class);
-                            intent.putExtra(EXTRA_INITIAL,initialUtilisateur);
                             intent.putExtra(PROJET, proj.getId());
                             startActivity(intent);
                             break;
@@ -127,7 +123,6 @@ public class ActivityDetailsProjet extends AppCompatActivity {
             buttonSaisies.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     Intent intent = new Intent(ActivityDetailsProjet.this, ActivityIndicateursSaisieCharge.class);
-                    intent.putExtra(EXTRA_INITIAL,initialUtilisateur);
                     intent.putExtra(PROJET, proj.getId());
                     startActivity(intent);
                 }
@@ -138,7 +133,6 @@ public class ActivityDetailsProjet extends AppCompatActivity {
             buttonFormations.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     Intent intent = new Intent(ActivityDetailsProjet.this, FormationsActivity.class);
-                    intent.putExtra(EXTRA_INITIAL,initialUtilisateur);
                     startActivity(intent);
                 }
             });
@@ -148,7 +142,6 @@ public class ActivityDetailsProjet extends AppCompatActivity {
             buttonBudget.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     Intent intent = new Intent(ActivityDetailsProjet.this, ActivityBudget.class);
-                    intent.putExtra(EXTRA_INITIAL,initialUtilisateur);
                     intent.putExtra(PROJET, proj.getId());
                     startActivity(intent);
                 }
@@ -204,14 +197,16 @@ public class ActivityDetailsProjet extends AppCompatActivity {
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
         int id = item.getItemId();
         //noinspection SimplifiableIfStatement
         switch(id){
             case R.id.initial_utilisateur:
+                intent = new Intent(ActivityDetailsProjet.this, ActivityMenuInitiales.class);
+                startActivity(intent);
                 return true;
             case R.id.charger_donnees:
-                Intent intent = new Intent(ActivityDetailsProjet.this, ChargementDonnees.class);
-                intent.putExtra(EXTRA_INITIAL, (initialUtilisateur));
+                intent = new Intent(ActivityDetailsProjet.this, ChargementDonnees.class);
                 startActivity(intent);
                 return true;
             case R.id.envoyer_mail:
@@ -231,7 +226,4 @@ public class ActivityDetailsProjet extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void definirCouleurBouton(){
-
-    }
 }

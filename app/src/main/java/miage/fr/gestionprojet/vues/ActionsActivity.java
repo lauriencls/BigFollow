@@ -44,6 +44,7 @@ import miage.fr.gestionprojet.R;
 import miage.fr.gestionprojet.adapter.ActionsAdapter;
 import miage.fr.gestionprojet.models.Action;
 import miage.fr.gestionprojet.models.Domaine;
+import miage.fr.gestionprojet.models.LoggedUser;
 import miage.fr.gestionprojet.models.Projet;
 import miage.fr.gestionprojet.models.dao.DaoAction;
 import miage.fr.gestionprojet.models.dao.DaoDomaine;
@@ -66,7 +67,6 @@ public class ActionsActivity extends AppCompatActivity implements View.OnClickLi
     private Date dateSaisie;
     private long idProjet;
 
-    public final static String EXTRA_INITIAL = "initial";
     public final static String EXTRA_PROJET = "projet visu";
     @Override
 
@@ -75,7 +75,7 @@ public class ActionsActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actions);
         try {
-            initial = getIntent().getStringExtra(ActivityDetailsProjet.EXTRA_INITIAL);
+            initial = LoggedUser.getInstance().getInitials();
             idProjet = getIntent().getLongExtra(EXTRA_PROJET,0);
         }catch(Exception e){
             e.printStackTrace();
@@ -273,6 +273,7 @@ public class ActionsActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
         switch (item.getItemId()) {
             case R.id.nom:
                 refreshAdapter(DaoAction.loadActionsOrderByNomAndDate(dateSaisie,idProjet));
@@ -287,10 +288,11 @@ public class ActionsActivity extends AppCompatActivity implements View.OnClickLi
                 showPopUp("phase");
                 return true;
             case R.id.initial_utilisateur:
+                intent = new Intent(ActionsActivity.this, ActivityMenuInitiales.class);
+                startActivity(intent);
                 return true;
             case R.id.charger_donnees:
-                Intent intent = new Intent(ActionsActivity.this, ChargementDonnees.class);
-                intent.putExtra(EXTRA_INITIAL, (initial));
+                 intent = new Intent(ActionsActivity.this, ChargementDonnees.class);
                 startActivity(intent);
                 return true;
         }

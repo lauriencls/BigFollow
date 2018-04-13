@@ -8,11 +8,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 
 public class LoggedUser {
 
-    GoogleSignInAccount currentUser;
 
-    private LoggedUser( )
-    {
-    }
+
+    private GoogleSignInAccount currentUser;
+    private String initials = "";
 
     /** Instance unique pré-initialisée */
     private static LoggedUser INSTANCE = new LoggedUser();
@@ -20,6 +19,22 @@ public class LoggedUser {
 
     public static LoggedUser getInstance()
     {   return INSTANCE;
+    }
+
+    public void setInitials(String initials) {
+        this.initials = initials;
+    }
+
+    public String getInitials() {
+        return initials;
+    }
+
+    private LoggedUser( )
+    {
+    }
+
+    public GoogleSignInAccount getCurrentUser() {
+        return currentUser;
     }
 
     public void setCurrentUser(GoogleSignInAccount currentUser){
