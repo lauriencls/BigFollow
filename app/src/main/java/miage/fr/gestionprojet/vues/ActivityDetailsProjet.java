@@ -18,7 +18,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.activeandroid.Model;
+import com.itextpdf.text.DocumentException;
 
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -33,6 +35,8 @@ import miage.fr.gestionprojet.models.dao.DaoFormation;
 import miage.fr.gestionprojet.models.dao.DaoProjet;
 import miage.fr.gestionprojet.models.dao.DaoSaisieCharge;
 import miage.fr.gestionprojet.outils.Outils;
+import miage.fr.gestionprojet.outils.factories.MailFactory;
+import miage.fr.gestionprojet.outils.factories.PdfFactory;
 
 public class ActivityDetailsProjet extends AppCompatActivity {
 
@@ -211,6 +215,17 @@ public class ActivityDetailsProjet extends AppCompatActivity {
                 Intent intent = new Intent(ActivityDetailsProjet.this, ChargementDonnees.class);
                 intent.putExtra(EXTRA_INITIAL, (initialUtilisateur));
                 startActivity(intent);
+                return true;
+            case R.id.envoyer_mail:
+                try {
+                    PdfFactory.create();
+                    MailFactory mf = new MailFactory();
+                    mf.sendMailWithAttachment(PdfFactory.DEST,"Résumé du projet", "Envoyer un email",this);
+                } catch (DocumentException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 return true;
 
         }
