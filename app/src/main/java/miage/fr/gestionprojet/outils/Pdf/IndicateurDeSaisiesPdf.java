@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import miage.fr.gestionprojet.models.LoggedUser;
 import miage.fr.gestionprojet.models.Projet;
 import miage.fr.gestionprojet.models.SaisieCharge;
 import miage.fr.gestionprojet.outils.factories.SaisieChargeFactory;
@@ -37,5 +38,7 @@ public class IndicateurDeSaisiesPdf extends InterfacePdf {
         headers.add("Liste des saisies");
 
         this.addTable(headers, lstSaisieCharge);
+
+        this.addParagraph("\n\nRestitution effectuée par " + LoggedUser.getInstance().getInitials());
     }
 }

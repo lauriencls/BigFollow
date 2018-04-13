@@ -118,7 +118,4 @@ public abstract class InterfacePdf {
             table.addCell(cell);
         }
     }
-
-
-
 }
