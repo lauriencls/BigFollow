@@ -286,6 +286,7 @@ public class DaoAction {
             lstActionRecuperees = new Select()
                     .from(Action.class)
                     .where("domaine=?",d.getId())
+                    .orderBy("dt_debut")
                     .execute();
             lstAction.addAll(lstActionRecuperees);
         }

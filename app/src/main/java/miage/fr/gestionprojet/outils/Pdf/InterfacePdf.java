@@ -33,14 +33,16 @@ import static miage.fr.gestionprojet.MyApplication.getContext;
  */
 
 public abstract class InterfacePdf {
-    public static final String DEST = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) +"/mail.pdf";
+    public static final String DEST = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) +"";
     private Document document;
     protected Projet projet;
+    protected Context context;
     protected boolean permissionGranted = false;
     public static final int PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 0;
 
     InterfacePdf(Projet projet, Context context) throws
             DocumentException, IOException {
+        this.context = context;
         this.permissionGranted = ContextCompat.checkSelfPermission(context, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 == PackageManager.PERMISSION_GRANTED;
         if (!this.permissionGranted) {
@@ -55,14 +57,15 @@ public abstract class InterfacePdf {
         }
     }
 
-    public void createPdf() throws IOException, DocumentException {
+    public String createPdf(String fileName) throws IOException, DocumentException {
         if(this.permissionGranted) {
-            this.instatiate(DEST);
+            this.instatiate(DEST+"/"+fileName);
 
             this.constructPdf();
 
             this.close();
         }
+        return DEST+"/"+fileName;
 
     }
 

@@ -4,7 +4,11 @@ import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
+
+import miage.fr.gestionprojet.models.dao.DaoMesure;
+import miage.fr.gestionprojet.outils.Outils;
 
 /**
  * Created by Audrey on 25/02/2017.
@@ -85,4 +89,15 @@ public class Formation extends Model {
     }
 
 
+    public String toPrintable() {
+        String vretour = this.getAction().getCode();
+
+        vretour += "\nPhase : "+ this.getAction().getPhase();
+        vretour += "\nAvancement total : "+ (int) this.getAvancementTotal() + "%";
+        vretour += "\nAvancement pré-requis : "+ (int) this.getAvancementPreRequis() + "%";
+        vretour += "\nAvancement Objectif : "+ (int) this.getAvancementObjectif() + "%";
+        vretour += "\nAvancement post-formation : "+ (int) this.getAvancementPostFormation() + "%";
+
+        return vretour;
+    }
 }

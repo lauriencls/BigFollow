@@ -210,16 +210,9 @@ public class ActivityDetailsProjet extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             case R.id.envoyer_mail:
-                try {
-                    IndicateurDeSaisiesPdf pdf = new IndicateurDeSaisiesPdf(proj, this);
-                    pdf.createPdf();
-                    MailFactory mf = new MailFactory();
-                    mf.sendMailWithAttachment(InterfacePdf.DEST,"Résumé du projet", "Envoyer un email",this);
-                } catch (DocumentException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                intent = new Intent(ActivityDetailsProjet.this, ActivityRestitutionMail.class);
+                intent.putExtra(PROJET, proj.getId());
+                startActivity(intent);
                 return true;
 
         }

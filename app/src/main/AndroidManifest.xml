@@ -7,11 +7,8 @@
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE"/>
-
-
-
+    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
 
     <application
         android:name=".MyApplication"
@@ -28,14 +25,7 @@
             android:value="7" />
         <meta-data
             android:name="AA_MODELS"
-            android:value="
-miage.fr.gestionprojet.models.Action,
-miage.fr.gestionprojet.models.Domaine,
-miage.fr.gestionprojet.models.Mesure,
-miage.fr.gestionprojet.models.Formation,
-miage.fr.gestionprojet.models.Projet,
-miage.fr.gestionprojet.models.Ressource,
-miage.fr.gestionprojet.models.SaisieCharge" />
+            android:value=" miage.fr.gestionprojet.models.Action, miage.fr.gestionprojet.models.Domaine, miage.fr.gestionprojet.models.Mesure, miage.fr.gestionprojet.models.Formation, miage.fr.gestionprojet.models.Projet, miage.fr.gestionprojet.models.Ressource, miage.fr.gestionprojet.models.SaisieCharge" />
 
         <activity android:name=".vues.ActivityConnexion">
             <intent-filter>
@@ -60,15 +50,15 @@ miage.fr.gestionprojet.models.SaisieCharge" />
         <activity
             android:name=".vues.FormationActivity"
             android:theme="@style/AppTheme.PopupCustomTheme" />
-        <activity android:name=".vues.ActivityMesures"></activity>
-
+        <activity android:name=".vues.ActivityMesures" />
 
         <provider
             android:name="com.activeandroid.content.ContentProvider"
             android:authorities="miage.fr.gestionprojet"
             android:enabled="true"
-            android:exported="false">
-        </provider>
+            android:exported="false"></provider>
+
+        <activity android:name=".vues.ActivityRestitutionMail"></activity>
     </application>
 
 </manifest>

@@ -220,4 +220,19 @@ public class Action extends Model{
     public String getTableName() {
         return "Action";
     }
+
+    public String toPrintable() {
+        String vretour = this.getCode();
+
+        vretour += "\nDate début : " + this.getDtDeb();
+        vretour += "\nDate fin prévue : " + this.getDtFinPrevue() ;
+        vretour += "\nDate fin réelle : " + this.getDtFinReelle() ;
+        vretour += "\nType de travail : " + this.getTypeTravail();
+        vretour += "\nTarif : " + this.getTarif();
+        vretour += "\nType facturation : " + this.getTypeFacturation();
+        vretour += "\nCout par jour : " + this.getCoutParJour();
+        vretour += "\nReste à faire : " + (int)this.getResteAFaire();
+
+        return vretour;
+    }
 }

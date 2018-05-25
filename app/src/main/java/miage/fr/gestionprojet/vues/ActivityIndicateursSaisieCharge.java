@@ -113,16 +113,9 @@ public class ActivityIndicateursSaisieCharge extends AppCompatActivity {
                 showPopup("domaine");
                 return true;
             case R.id.envoyer_mail:
-                try {
-                    IndicateurDeSaisiesPdf pdf = new IndicateurDeSaisiesPdf(proj, this);
-                    pdf.createPdf();
-                    MailFactory mf = new MailFactory();
-                    mf.sendMailWithAttachment(InterfacePdf.DEST,"Résumé du projet", "Envoyer un email",this);
-                } catch (DocumentException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                intent = new Intent(this, ActivityRestitutionMail.class);
+                intent.putExtra(ActivityDetailsProjet.PROJET, proj.getId());
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
