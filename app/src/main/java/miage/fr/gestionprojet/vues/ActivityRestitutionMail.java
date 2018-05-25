@@ -72,8 +72,10 @@ public class ActivityRestitutionMail extends AppCompatActivity {
                         SuiviBudgetPdf budget = new SuiviBudgetPdf(proj, ActivityRestitutionMail.this);
                         paths.add(budget.createPdf("budget.pdf"));
                     }
-                    MailFactory mf = new MailFactory();
-                    mf.sendMailWithAttachment(InterfacePdf.DEST,"Résumé du projet", "Envoyer un email",ActivityRestitutionMail.this, paths);
+                    if(paths.size()>0) {
+                        MailFactory mf = new MailFactory();
+                        mf.sendMailWithAttachment(InterfacePdf.DEST, "Résumé du projet", "Envoyer un email", ActivityRestitutionMail.this, paths);
+                    }
                 } catch (DocumentException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
