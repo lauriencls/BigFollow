@@ -15,6 +15,7 @@
         import com.google.api.client.json.jackson2.JacksonFactory;
         import com.google.api.client.util.ExponentialBackOff;
 
+        import com.google.api.services.sheets.v4.Sheets;
         import com.google.api.services.sheets.v4.SheetsScopes;
 
         import com.google.api.services.sheets.v4.model.*;
@@ -49,10 +50,7 @@
         import java.util.List;
         import java.util.Arrays;
         import java.util.Date;
-        import java.util.HashMap;
-        import java.util.List;
 
-        import miage.fr.gestionprojet.models.EtapeFormation;
         import miage.fr.gestionprojet.models.Formation;
         import miage.fr.gestionprojet.models.Action;
         import miage.fr.gestionprojet.models.Domaine;
@@ -64,8 +62,6 @@
         import miage.fr.gestionprojet.models.dao.DaoAction;
 
         import miage.fr.gestionprojet.models.dao.DaoDomaine;
-        import miage.fr.gestionprojet.models.dao.DaoFormation;
-        import miage.fr.gestionprojet.models.dao.DaoMesure;
         import miage.fr.gestionprojet.models.dao.DaoProjet;
         import miage.fr.gestionprojet.models.dao.DaoRessource;
         import miage.fr.gestionprojet.models.dao.DaoSaisieCharge;
@@ -82,7 +78,7 @@ public class ChargementDonnees extends Activity implements EasyPermissions.Permi
     private EditText buttonInput;
 
     private static String spreadsheetId ;
-    private static String spreadsheetIdParDefaut= "1yw_8OO4oFYR6Q25KH0KE4LOr86UfwoNl_E6hGgq2UD4";
+    private static String spreadsheetIdParDefaut= "18OGZnKyjQKxSLgI2DWDUspvgLMh7ooVVVQXxMkw-w2g";
 
     static final int REQUEST_ACCOUNT_PICKER = 1000;
     static final int REQUEST_AUTHORIZATION = 1001;
@@ -398,6 +394,7 @@ public class ChargementDonnees extends Activity implements EasyPermissions.Permi
                     transport, jsonFactory, credential)
                     .setApplicationName("Big Follow")
                     .build();
+
         }
 
         /**
