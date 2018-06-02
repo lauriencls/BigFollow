@@ -1,7 +1,6 @@
 package miage.fr.gestionprojet.outils;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -17,11 +16,13 @@ import com.google.api.services.sheets.v4.model.UpdateValuesResponse;
 import com.google.api.services.sheets.v4.model.ValueRange;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.List;
 
 import miage.fr.gestionprojet.models.LoggedUser;
+import miage.fr.gestionprojet.models.Mesure;
+import miage.fr.gestionprojet.models.dao.DaoMesure;
 
 /**
  * Created by Rushnak on 30/05/2018.
@@ -32,14 +33,12 @@ public class UpdaterTask extends AsyncTask<Void, Void, List<String>> {
     private static final String[] SCOPES = {SheetsScopes.SPREADSHEETS};
     private com.google.api.services.sheets.v4.Sheets mService = null;
     private String spreadSheetId;
-    private String cell;
     private ValueRange valueRange;
     private Activity context;
     static final int REQUEST_AUTHORIZATION = 1001;
 
-    public UpdaterTask(Activity context, String spreadsheetId, String cell, Object value){
+    public UpdaterTask(Activity context, String spreadsheetId, Mesure mesure){
         this.spreadSheetId = spreadsheetId;
-        this.cell = cell;
         this.context = context;
         GoogleAccountCredential mCredential = GoogleAccountCredential.usingOAuth2(
                 context.getApplicationContext(), Arrays.asList(SCOPES))
@@ -51,10 +50,15 @@ public class UpdaterTask extends AsyncTask<Void, Void, List<String>> {
                 transport, jsonFactory, mCredential)
                 .setApplicationName("Big Follow")
                 .build();
-
+        SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
+        Object[] val = {
+                mesure.getAction().getAction().getCode(),
+                String.valueOf(mesure.getNbUnitesMesures()),
+                fmt.format(mesure.getDtMesure())
+        };
         List<List<Object>> values = Arrays.asList(
                 Arrays.asList(
-                        value
+                    val
                 )
         );
         valueRange = new ValueRange().setValues(values);
@@ -66,11 +70,12 @@ public class UpdaterTask extends AsyncTask<Void, Void, List<String>> {
     @Override
     protected List<String> doInBackground(Void... params) {
         UpdateValuesResponse result = null;
+        String line = String.valueOf(DaoMesure.loadAll().size()+2);
         try {
-            result = mService.spreadsheets().values().update(spreadSheetId, cell, valueRange)
+            result = mService.spreadsheets().values().update(spreadSheetId, "Mesures de saisie/charge!A"+line+":C"+line, valueRange)
                     .setValueInputOption("RAW")
                     .execute();
-            System.out.printf("%d cells updated.", result.getUpdatedCells());
+            Log.v("debug","Mesure ajoutée ");
         } catch (UserRecoverableAuthIOException e1){
             context.startActivityForResult(e1.getIntent(), REQUEST_AUTHORIZATION);
             this.execute(params);

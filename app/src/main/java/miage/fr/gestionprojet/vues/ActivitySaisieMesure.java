@@ -19,6 +19,7 @@ import miage.fr.gestionprojet.models.LoggedUser;
 import miage.fr.gestionprojet.models.Mesure;
 import miage.fr.gestionprojet.models.SaisieCharge;
 import miage.fr.gestionprojet.outils.Outils;
+import miage.fr.gestionprojet.outils.UpdaterTask;
 
 public class ActivitySaisieMesure extends AppCompatActivity {
     Button addSaisieBtn;
@@ -58,6 +59,9 @@ public class ActivitySaisieMesure extends AppCompatActivity {
                     mesure.setAction(saisieCharge);
                     mesure.setDtMesure(new Date());
                     mesure.setNbUnitesMesures(nbSaisie);
+
+                    new UpdaterTask(ActivitySaisieMesure.this, "18OGZnKyjQKxSLgI2DWDUspvgLMh7ooVVVQXxMkw-w2g", mesure).execute();
+
                     mesure.save();
                     finish();
                 }else{

@@ -1,10 +1,7 @@
 package miage.fr.gestionprojet.vues;
 
-import android.Manifest;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,24 +20,13 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.plus.People;
 import com.google.android.gms.plus.model.people.PersonBuffer;
 import com.google.android.gms.tasks.Task;
-import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
-import com.google.api.client.googleapis.extensions.android.gms.auth.UserRecoverableAuthIOException;
-import com.google.api.client.util.ExponentialBackOff;
-import com.google.api.services.sheets.v4.SheetsScopes;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import miage.fr.gestionprojet.R;
 import miage.fr.gestionprojet.models.LoggedUser;
 import miage.fr.gestionprojet.outils.UpdaterTask;
-import pub.devrel.easypermissions.AfterPermissionGranted;
-import pub.devrel.easypermissions.EasyPermissions;
-
-import static miage.fr.gestionprojet.vues.ChargementDonnees.REQUEST_ACCOUNT_PICKER;
-import static miage.fr.gestionprojet.vues.ChargementDonnees.REQUEST_AUTHORIZATION;
-import static miage.fr.gestionprojet.vues.ChargementDonnees.REQUEST_PERMISSION_GET_ACCOUNTS;
 
 public class ActivityConnexion extends AppCompatActivity  implements View.OnClickListener, ResultCallback<People.LoadPeopleResult>{
     SignInButton signIn_btn;
@@ -149,9 +135,6 @@ public class ActivityConnexion extends AppCompatActivity  implements View.OnClic
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
             LoggedUser.getInstance().setCurrentUser(account);
-
-            //new UpdaterTask(this, "18OGZnKyjQKxSLgI2DWDUspvgLMh7ooVVVQXxMkw-w2g", "I3", "1").execute();
-
 
             signIn_btn.setVisibility(View.GONE);
             signOut_btn.setVisibility(View.VISIBLE);
