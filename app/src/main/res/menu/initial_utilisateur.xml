@@ -4,6 +4,14 @@
     tools:context="miage.fr.gestionprojet.vues.MainActivity">
 
         <item
+            android:id="@+id/add"
+            android:icon="@drawable/ic_action_name"
+            android:orderInCategory="101"
+            android:orientation="vertical"
+            android:title=""
+            app:showAsAction="always"
+            android:visible="false"/>
+        <item
             android:id="@+id/initial_utilisateur"
             android:orderInCategory="100"
             android:title=""

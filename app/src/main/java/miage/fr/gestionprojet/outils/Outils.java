@@ -29,4 +29,27 @@ public class Outils {
         long numberOfDay = duree/CONST_DURATION_OF_DAY;
         return numberOfDay;
     }
+
+    public static boolean isInteger(String s) {
+        try {
+            Integer.parseInt(s);
+        } catch(NumberFormatException e) {
+            return false;
+        } catch(NullPointerException e) {
+            return false;
+        }
+        // only got here if we didn't return false
+        return true;
+    }
+
+    public static int toInteger(String s) {
+        try {
+            return Integer.parseInt(s);
+        } catch(NumberFormatException e) {
+            return -1;
+        } catch(NullPointerException e) {
+            return -1;
+        }
+        // only got here if we didn't return false
+    }
 }

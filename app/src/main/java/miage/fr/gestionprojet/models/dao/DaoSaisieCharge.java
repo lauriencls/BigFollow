@@ -90,6 +90,18 @@ public class DaoSaisieCharge {
         }
     }
 
+    public static SaisieCharge loadSaisieChargeById(long id){
+        List<SaisieCharge> lst = new Select()
+                .from(SaisieCharge.class)
+                .where("action = ?", id)
+                .execute();
+        if(lst.size()>0) {
+            return lst.get(0);
+        }else{
+            return null;
+        }
+    }
+
     public static int getNbUnitesSaisies(long idProjet){
         Projet projet = Model.load(Projet.class, idProjet);
         List<Domaine> doms = projet.getLstDomaines();

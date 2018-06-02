@@ -56,9 +56,10 @@
             android:name="com.activeandroid.content.ContentProvider"
             android:authorities="miage.fr.gestionprojet"
             android:enabled="true"
-            android:exported="false"></provider>
+            android:exported="false" />
 
-        <activity android:name=".vues.ActivityRestitutionMail"></activity>
+        <activity android:name=".vues.ActivityRestitutionMail" />
+        <activity android:name=".vues.ActivitySaisieMesure"></activity>
     </application>
 
 </manifest>

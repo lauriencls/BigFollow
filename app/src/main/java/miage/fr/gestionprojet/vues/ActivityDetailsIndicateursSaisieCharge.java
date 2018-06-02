@@ -35,6 +35,8 @@ public class ActivityDetailsIndicateursSaisieCharge extends AppCompatActivity {
     private TextView txtSaisieCharge;
     public static final String EXTRA_SAISIECHARGE = "saisie charge";
     public String initialUtilisateur =null;
+    MenuItem addMenuItem;
+    long id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +44,14 @@ public class ActivityDetailsIndicateursSaisieCharge extends AppCompatActivity {
         setContentView(R.layout.activity_details_indicateurs_saisie_charge);
 
         Intent intent = getIntent();
-        long id = intent.getLongExtra(ActivityIndicateursSaisieCharge.SAISIECHARGE,0);
+        id = intent.getLongExtra(ActivityIndicateursSaisieCharge.SAISIECHARGE,0);
         initialUtilisateur = LoggedUser.getInstance().getInitials();
 
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
         if(id > 0){
             saisieCharge = Model.load(SaisieCharge.class, id);
             Mesure mesure = DaoMesure.getLastMesureBySaisieCharge(saisieCharge.getId());
@@ -58,7 +64,7 @@ public class ActivityDetailsIndicateursSaisieCharge extends AppCompatActivity {
 
             TextView txtPrct = (TextView) findViewById(R.id.textViewPrct);
             txtPrct.setText("Heure/unite:"+saisieCharge.getHeureParUnite()+"\n"+"ChargeTotale:"+saisieCharge.getChargeTotaleEstimeeEnHeure()
-            +"\n"+"Charge/semaine:"+saisieCharge.getChargeEstimeeParSemaine());
+                    +"\n"+"Charge/semaine:"+saisieCharge.getChargeEstimeeParSemaine());
 
             TextView txtDateDeb = (TextView) findViewById(R.id.txtDtDeb);
             TextView txtDateFin = (TextView) findViewById(R.id.txtDtFin);
@@ -90,8 +96,6 @@ public class ActivityDetailsIndicateursSaisieCharge extends AppCompatActivity {
             });
 
         }
-
-
     }
 
     //ajout du menu
@@ -99,6 +103,8 @@ public class ActivityDetailsIndicateursSaisieCharge extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.initial_utilisateur, menu);
         menu.findItem(R.id.initial_utilisateur).setTitle(initialUtilisateur);
+        addMenuItem = menu.findItem(R.id.add);
+        addMenuItem.setVisible(true);
         return true;
     }
 
@@ -113,6 +119,11 @@ public class ActivityDetailsIndicateursSaisieCharge extends AppCompatActivity {
                 return true;
             case R.id.charger_donnees:
                  intent = new Intent(ActivityDetailsIndicateursSaisieCharge.this, ChargementDonnees.class);
+                startActivity(intent);
+                return true;
+            case R.id.add:
+                intent = new Intent(ActivityDetailsIndicateursSaisieCharge.this, ActivitySaisieMesure.class);
+                intent.putExtra(EXTRA_SAISIECHARGE, saisieCharge.getId());
                 startActivity(intent);
                 return true;
 

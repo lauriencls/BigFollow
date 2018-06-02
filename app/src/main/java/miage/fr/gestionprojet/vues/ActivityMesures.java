@@ -25,6 +25,7 @@ public class ActivityMesures extends AppCompatActivity {
     public static final String EXTRA_SAISIECHARGE = "saisie charge";
     public String initialUtilisateur =null;
     private SaisieCharge saisieCharge = null;
+    MenuItem addMenuItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,8 @@ public class ActivityMesures extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.initial_utilisateur, menu);
         menu.findItem(R.id.initial_utilisateur).setTitle(initialUtilisateur);
+        addMenuItem = menu.findItem(R.id.add);
+        addMenuItem.setVisible(true);
         return true;
     }
 
@@ -62,6 +65,11 @@ public class ActivityMesures extends AppCompatActivity {
                 return true;
             case R.id.charger_donnees:
                 intent = new Intent(ActivityMesures.this, ChargementDonnees.class);
+                startActivity(intent);
+                return true;
+            case R.id.add:
+                intent = new Intent(this, ActivitySaisieMesure.class);
+                intent.putExtra(EXTRA_SAISIECHARGE, saisieCharge.getId());
                 startActivity(intent);
                 return true;
 
