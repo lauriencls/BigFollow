@@ -70,7 +70,7 @@ public class UpdaterTask extends AsyncTask<Void, Void, List<String>> {
     @Override
     protected List<String> doInBackground(Void... params) {
         UpdateValuesResponse result = null;
-        String line = String.valueOf(DaoMesure.loadAll().size()+2);
+        String line = String.valueOf(DaoMesure.loadAll().size()+1);
         try {
             result = mService.spreadsheets().values().update(spreadSheetId, "Mesures de saisie/charge!A"+line+":C"+line, valueRange)
                     .setValueInputOption("RAW")
@@ -78,7 +78,7 @@ public class UpdaterTask extends AsyncTask<Void, Void, List<String>> {
             Log.v("debug","Mesure ajoutée ");
         } catch (UserRecoverableAuthIOException e1){
             context.startActivityForResult(e1.getIntent(), REQUEST_AUTHORIZATION);
-            this.execute(params);
+            //this.execute(params);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -1,6 +1,9 @@
 package miage.fr.gestionprojet.outils;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.icu.text.LocaleDisplayNames;
+import android.preference.PreferenceManager;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -51,5 +54,19 @@ public class Outils {
             return -1;
         }
         // only got here if we didn't return false
+    }
+
+    public static void savePreference( String valueKey, String value, Context context) {
+        SharedPreferences prefs = PreferenceManager
+                .getDefaultSharedPreferences(context);
+        SharedPreferences.Editor edit = prefs.edit();
+        edit.putString(valueKey, value);
+        edit.commit();
+    }
+
+    public static String readPreference(String valueKey, String valueDefault, Context context) {
+        SharedPreferences prefs = PreferenceManager
+                .getDefaultSharedPreferences(context);
+        return prefs.getString(valueKey, valueDefault);
     }
 }

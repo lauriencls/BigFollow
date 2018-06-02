@@ -78,7 +78,7 @@ public class ChargementDonnees extends Activity implements EasyPermissions.Permi
     private EditText buttonInput;
 
     private static String spreadsheetId ;
-    private static String spreadsheetIdParDefaut= "18OGZnKyjQKxSLgI2DWDUspvgLMh7ooVVVQXxMkw-w2g";
+    public static String spreadsheetIdParDefaut= "18OGZnKyjQKxSLgI2DWDUspvgLMh7ooVVVQXxMkw-w2g";
 
     static final int REQUEST_ACCOUNT_PICKER = 1000;
     static final int REQUEST_AUTHORIZATION = 1001;
@@ -426,7 +426,8 @@ public class ChargementDonnees extends Activity implements EasyPermissions.Permi
             feuilles.put("rangeActions","Liste des actions projet!A3:Z");
             feuilles.put("rangeRessources","Ressources!A2:Z");
             */
-            String spreadsheetId = "1yw_8OO4oFYR6Q25KH0KE4LOr86UfwoNl_E6hGgq2UD4";
+            String spreadsheetId = buttonInput.getText().toString();
+            Outils.savePreference("spreadSheetId", spreadsheetId, getBaseContext());
             String rangeProject = "Informations générales!A2:E";
             String rangeActions = "Liste des actions projet!A3:Z";
             String rangeDcConso = "DC et détails conso!A5:Z";

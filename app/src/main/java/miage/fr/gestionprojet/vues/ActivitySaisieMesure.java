@@ -60,7 +60,7 @@ public class ActivitySaisieMesure extends AppCompatActivity {
                     mesure.setDtMesure(new Date());
                     mesure.setNbUnitesMesures(nbSaisie);
 
-                    new UpdaterTask(ActivitySaisieMesure.this, "18OGZnKyjQKxSLgI2DWDUspvgLMh7ooVVVQXxMkw-w2g", mesure).execute();
+                    new UpdaterTask(ActivitySaisieMesure.this, Outils.readPreference("spreadSheetId", ChargementDonnees.spreadsheetIdParDefaut, getBaseContext()), mesure).execute();
 
                     mesure.save();
                     finish();
